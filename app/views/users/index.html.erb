@@ -1,18 +1,19 @@
-<div class="card border-dark p-4 mx-4 mb-4 bg-primary">
-  <h1 class="h1 mb-3 font-weight-normal text-center">Ajouter un(e) participant(e)</h1>
+<div class="card border-dark text-center p-4 mx-4 mb-4 bg-dark text-light">
+  <h1 class="h1 mb-3 font-weight-normal text-center">Add a participant</h1>
     <%= form_tag url_for(action: 'create'), method: "post" do %>
-      <div class="text-center">
-        <td><%= label_tag 'Prénom'%></td>
+    
+      <div>
+        <%= label_tag 'First Name'%>
 		    <%= text_field_tag(:first_name)%>
       </div><br>
     
-      <div class="text-center"> 
-        <td><%= label_tag 'Nom'%>
-		    <%= text_field_tag(:last_name)%></td>
+      <div> 
+        <%= label_tag 'Last Name'%>
+		    <%= text_field_tag(:last_name)%>
       </div><br>
     
-      <div class="text-center">
-        <%= submit_tag "Ajouter aux participants", class:"btn btn-success" %>
+      <div>
+        <%= submit_tag "Add", class:"btn btn-success" %>
       </div>
 	  <% end %>
 </div>
@@ -21,21 +22,21 @@
   <p id="alert" class="text-center text-danger"><%= alert %></p>
 
 <div class="text-center">
- <td><%= link_to 'Séléctionner au hasard un participant', random_select_path, class:"btn btn-info" %></td>
+ <td><%= link_to 'Draw', random_select_path, class:"btn btn-dark btn-lg" %></td>
 </div><br>
 
 
 
   <div class="card border-dark text-center p-4 mx-4 mb-4 bg-warning">
-    <h1 class="h1 mb-3 font-weight-normal text-center">Participants</h1>
+    <h1 class="h1 mb-3 font-weight-normal text-center">The participants</h1>
     </br>
       <div class="member-list">
         <% @users.each do |user| %>
-        <div class="card d-inline-flex p-4 mx-2 mb-4 bg-info bg-info">
-          <%= user.first_name %>  <%= user.last_name %>
+        <div class="card d-inline-flex p-4 mx-2 mb-4 bg-dark text-light">
+          <h4><%= user.first_name %>  <%= user.last_name %></h4>
             <tr>
-              <td><%= link_to 'Edit', edit_user_path(user), class:"btn btn-primary" %></td>
-              <td><%= link_to 'Destroy', user, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <br><td><%= link_to 'Edit participant', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
+              <td><%= link_to 'Destroy participant', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         </div>
         <% end %>

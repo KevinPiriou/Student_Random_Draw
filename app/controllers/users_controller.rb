@@ -16,10 +16,10 @@ class UsersController < ApplicationController
   
       respond_to do |format|
         if @user.save
-          format.html { redirect_to users_path, notice: "Utilisateur inscrit" }
+          format.html { redirect_to users_path, notice: "User registered !" }
           format.json { }
         else
-          format.html { redirect_to users_path, alert: "Veuillez remplir le formulaire" }
+          format.html { redirect_to users_path, alert: "Please complete the form !" }
           format.json { }
         end
       end
@@ -28,10 +28,10 @@ class UsersController < ApplicationController
     def update
       respond_to do |format|
         if @user.update(user_update_params)
-          format.html { redirect_to users_path, notice: "Utilisateur mis a jour" }
+          format.html { redirect_to users_path, notice: "User updated !" }
           format.js { }
         else
-          format.html { redirect_to users_path, alert: "Echec lors de la mise à jour" }
+          format.html { redirect_to users_path, alert: "Update failed !" }
           format.js { }
         end
       end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       @user.destroy
   
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "Utilisateur supprimé avec succès" }
+        format.html { redirect_to users_url, notice: "User deleted" }
         format.js { }
       end
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       random_user = User.all.sample
       @user_select = random_user.first_name
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "#{@user_select} à été choisi" }
+        format.html { redirect_to users_url, notice: "#{@user_select} has been chosen ! " }
         format.js { }
       end
     end
