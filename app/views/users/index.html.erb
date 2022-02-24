@@ -21,15 +21,17 @@
   <p id="notice" class="text-center text-success"><%= notice %></p>
   <p id="alert" class="text-center text-danger"><%= alert %></p>
 
-<div class="text-center">
- <td><%= link_to 'Draw !', random_select_path, class:"btn btn-info btn-lg" %></td>
-</div><br>
+
 
 
 
   <div class="card border-dark text-center p-4 mx-4 mb-4 bg-warning">
     <h1 class="h1 mb-3 font-weight-normal text-center">Students</h1>
     </br>
+
+    <div class="text-center">
+      <td><%= link_to 'Draw !', random_select_path, class:"btn btn-info btn-lg" %></td>
+    </div><br>
 
     <div>
     <td><%= link_to 'Delete all students', destroy_all_user_path, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
