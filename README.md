@@ -42,3 +42,8 @@ When you have you app ready, you will present it to the crew 😎.
    2. CSS rules
    3. App logic (back-end / front-end)
 3. [3 minutes max] You will explain how you put your app to production (if done) [industrialization]
+
+
+
+This appplication is host by
+ <a href="https://student-draw-wcs.herokuapp.com/" class="button danger">HEROKU</a>
