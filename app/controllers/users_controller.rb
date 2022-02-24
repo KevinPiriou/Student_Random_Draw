@@ -16,10 +16,10 @@ class UsersController < ApplicationController
   
       respond_to do |format|
         if @user.save
-          format.html { redirect_to users_path, notice: "Student registered" }
+          format.html { redirect_to users_path, notice: " ✅ Student registered ✅" }
           format.json { }
         else
-          format.html { redirect_to users_path, alert: "Please complete the form !" }
+          format.html { redirect_to users_path, alert: " 🚨 Please complete the form 🚨" }
           format.json { }
         end
       end
@@ -28,10 +28,10 @@ class UsersController < ApplicationController
     def update
       respond_to do |format|
         if @user.update(user_update_params)
-          format.html { redirect_to users_path, notice: "Student updated" }
+          format.html { redirect_to users_path, notice: " ✅ Student updated ✅" }
           format.js { }
         else
-          format.html { redirect_to users_path, alert: "Update failed !" }
+          format.html { redirect_to users_path, alert: " 🚨 Update failed 🚨" }
           format.js { }
         end
       end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       @user.destroy
   
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "Student deleted" }
+        format.html { redirect_to users_url, notice: " ✅ Student deleted ✅" }
         format.js { }
       end
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     def destroy_all_user
       User.destroy_all  
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "All student deleted" }
+        format.html { redirect_to users_url, notice: " ✅ All student deleted ✅" }
         format.js { }
       end
     end
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
       random_user = User.all.sample
       @user_select = random_user.first_name
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "#{@user_select} has been chosen ! " }
+        format.html { redirect_to users_url, notice: " 📢 #{@user_select} has been chosen 📢 " }
         format.js { }
       end
     end
