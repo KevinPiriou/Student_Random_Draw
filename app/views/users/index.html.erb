@@ -27,17 +27,19 @@
     </br>
 
     <div class="text-center">
+      
       <td><%= link_to '🎲 Draw 🎲', random_select_path, class:"btn btn-info btn-lg" %></td>
-    </div><br>
-
-    <div>
-    <td><%= link_to '📛 Delete all students 📛', destroy_all_user_path, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to '📛 Delete all students 📛', destroy_all_user_path, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </div></br> 
 
       <div class="member-list">
         <% @users.each do |user| %>
         <div class="card d-inline-flex p-4 mx-2 mb-4 bg-dark text-light">
+        <% if user.speech? %>
+          <h4><%= user.first_name %>  <%= user.last_name %> ✅📣</h4>
+          <% else %>
           <h4><%= user.first_name %>  <%= user.last_name %></h4>
+          <% end %>
             <tr><br>
               <td><%= link_to 'Edit student', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
               <td><%= link_to 'Delete student', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>

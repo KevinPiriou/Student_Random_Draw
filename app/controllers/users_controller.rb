@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new(user_params)
-  
       respond_to do |format|
         if @user.save
           format.html { redirect_to users_path, notice: " ✅ Student registered ✅" }
@@ -55,14 +54,18 @@ class UsersController < ApplicationController
     end
 
     def random_select
-      random_user = User.all.sample
-      @user_select = random_user.first_name
+      @user = User.all.sample
+      if @user.speech?
+        User.all.sample
+      else
+      @user.toggle! :speech
+      end
+      @user_select = @user.first_name
       respond_to do |format|
         format.html { redirect_to users_url, notice: " 📢 #{@user_select} has been chosen 📢 " }
         format.js { }
       end
     end
-
     private
 
     def set_user
@@ -70,11 +73,11 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:first_name, :last_name)
+      params.permit(:first_name, :last_name, :speech)
     end
 
     def user_update_params
-      params.require(:user).permit(:first_name, :last_name)
+      params.require(:user).permit(:first_name, :last_name, :speech)
     end
   end
   
