@@ -1,32 +1,21 @@
-<h1 class="h1 mb-3 font-weight-normal text-center">Mise à jour d'un participant</h1>
-<div class="card border-dark text-center p-4 mx-4 mb-4 bg-primary">
-<%= form_with(model: @user, local: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="card border-dark text-center p-4 mx-4 mb-4 bg-dark text-light">
+  <h1 class="h1 mb-3 font-weight-normal text-center">Update a student</h1>
+  <%= form_with(model: @user, local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :First_name %>
+      <%= form.text_field :first_name %>
+    </div><br>
+
+    <div class="field">
+      <%= form.label :Last_name %>
+      <%= form.text_field :last_name %>
+    </div><br>
+    
+    <div class="actions">
+      <%= form.submit "Update", class:"btn btn-lg btn-success" %>
     </div>
+
   <% end %>
-
-  <div class="field">
-    <%= form.label :Prénom %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Nom %>
-    <%= form.text_field :last_name %>
-  </div>
-  <br>
-<div class="actions">
-          <%= form.submit "Modifier", class:"btn btn-lg btn-success" %>
-</div>
-
-  
-<% end %>
 </div>

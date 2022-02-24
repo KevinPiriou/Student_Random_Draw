@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   
       respond_to do |format|
         if @user.save
-          format.html { redirect_to users_path, notice: "User registered !" }
+          format.html { redirect_to users_path, notice: "Student registered" }
           format.json { }
         else
           format.html { redirect_to users_path, alert: "Please complete the form !" }
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     def update
       respond_to do |format|
         if @user.update(user_update_params)
-          format.html { redirect_to users_path, notice: "User updated !" }
+          format.html { redirect_to users_path, notice: "Student updated" }
           format.js { }
         else
           format.html { redirect_to users_path, alert: "Update failed !" }
@@ -41,7 +41,15 @@ class UsersController < ApplicationController
       @user.destroy
   
       respond_to do |format|
-        format.html { redirect_to users_url, notice: "User deleted" }
+        format.html { redirect_to users_url, notice: "Student deleted" }
+        format.js { }
+      end
+    end
+
+    def destroy_all_user
+      User.destroy_all  
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: "All student deleted" }
         format.js { }
       end
     end

@@ -1,5 +1,5 @@
 <div class="card border-dark text-center p-4 mx-4 mb-4 bg-dark text-light">
-  <h1 class="h1 mb-3 font-weight-normal text-center">Add a participant</h1>
+  <h1 class="h1 mb-3 font-weight-normal text-center">Add a student</h1>
     <%= form_tag url_for(action: 'create'), method: "post" do %>
     
       <div>
@@ -22,21 +22,26 @@
   <p id="alert" class="text-center text-danger"><%= alert %></p>
 
 <div class="text-center">
- <td><%= link_to 'Draw', random_select_path, class:"btn btn-info btn-lg" %></td>
+ <td><%= link_to 'Draw !', random_select_path, class:"btn btn-info btn-lg" %></td>
 </div><br>
 
 
 
   <div class="card border-dark text-center p-4 mx-4 mb-4 bg-warning">
-    <h1 class="h1 mb-3 font-weight-normal text-center">The participants</h1>
+    <h1 class="h1 mb-3 font-weight-normal text-center">Students</h1>
     </br>
+
+    <div>
+    <td><%= link_to 'Delete all students', destroy_all_user_path, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </div></br> 
+
       <div class="member-list">
         <% @users.each do |user| %>
         <div class="card d-inline-flex p-4 mx-2 mb-4 bg-dark text-light">
           <h4><%= user.first_name %>  <%= user.last_name %></h4>
             <tr>
-              <br><td><%= link_to 'Edit participant', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
-              <td><%= link_to 'Delete participant', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <br><td><%= link_to 'Edit student', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
+              <td><%= link_to 'Delete student', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         </div>
         <% end %>
