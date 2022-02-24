@@ -13,7 +13,7 @@
       </div><br>
     
       <div>
-        <%= submit_tag "Add", class:"btn btn-success" %>
+        <%= submit_tag "Add participant", class:"btn btn-success" %>
       </div>
 	  <% end %>
 </div>
@@ -22,7 +22,7 @@
   <p id="alert" class="text-center text-danger"><%= alert %></p>
 
 <div class="text-center">
- <td><%= link_to 'Draw', random_select_path, class:"btn btn-dark btn-lg" %></td>
+ <td><%= link_to 'Draw', random_select_path, class:"btn btn-info btn-lg" %></td>
 </div><br>
 
 
@@ -36,7 +36,7 @@
           <h4><%= user.first_name %>  <%= user.last_name %></h4>
             <tr>
               <br><td><%= link_to 'Edit participant', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
-              <td><%= link_to 'Destroy participant', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete participant', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         </div>
         <% end %>
