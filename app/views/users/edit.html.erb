@@ -1,3 +1,5 @@
+<h1 class="h1 mb-3 font-weight-normal text-center">Mise à jour d'un participant</h1>
+<div class="card border-dark text-center p-4 mx-4 mb-4 bg-primary">
 <%= form_with(model: @user, local: true) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -20,8 +22,11 @@
     <%= form.label :Nom %>
     <%= form.text_field :last_name %>
   </div>
+  <br>
 <div class="actions">
-          <%= form.submit "Modifier", class:"w-100 btn btn-lg btn-primary" %>
-        </div>
+          <%= form.submit "Modifier", class:"btn btn-lg btn-success" %>
+</div>
+
   
 <% end %>
+</div>
