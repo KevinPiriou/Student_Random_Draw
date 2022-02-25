@@ -1,37 +1,32 @@
+<!-- SIGN IN FORM -->
 <div class="card border-dark text-center p-4 mx-4 mb-4 bg-dark text-light">
   <h1 class="h1 mb-3 font-weight-normal text-center"> 👨🏼‍🎓 Add a student 👩🏼‍🎓</h1>
     <%= form_tag url_for(action: 'create'), method: "post" do %>
-    
       <div>
         <%= label_tag 'First Name'%>
 		    <%= text_field_tag(:first_name)%>
       </div><br>
-    
       <div> 
         <%= label_tag 'Last Name'%>
 		    <%= text_field_tag(:last_name)%>
       </div><br>
-    
       <div>
         <%= submit_tag " ➕ Add student ➕", class:"btn btn-success" %>
       </div>
 	  <% end %>
 </div>
-
-  <div class="card border-dark text-center p-4 mx-4 mb-4 bg-warning">
-    <h1 class="h1 mb-3 font-weight-normal text-center"> 👩‍💻 Students 👨‍💻</h1>
-
-  <p id="notice" class="text-center text-success"><%= notice %></p>
-  <p id="alert" class="text-center text-danger"><%= alert %></p>
-
-    </br>
-
+<!-- MEMBERS LIST -->
+<div class="card border-dark text-center p-4 mx-4 mb-4 bg-warning">
+  <h1 class="h1 mb-3 font-weight-normal text-center"> 👩‍💻 Students 👨‍💻</h1></br>
+<!-- ALERTE/NOTICE-->
+<p id="notice" class="text-center text-success"><%= notice %></p>
+<p id="alert" class="text-center text-danger"><%= alert %></p>
+<!-- FEATURES BUTTON -->
     <div class="text-center">
-      
       <td><%= link_to '🎲 Draw 🎲', random_select_path, class:"btn btn-info btn-lg" %></td>
       <td><%= link_to '📛 Delete all students 📛', destroy_all_user_path, class:"btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </div></br> 
-
+<!-- STUDENTS LIST -->
       <div class="member-list">
         <% @users.each do |user| %>
         <div class="card d-inline-flex p-4 mx-2 mb-4 bg-dark text-light">
@@ -41,6 +36,7 @@
           <h4><%= user.first_name %>  <%= user.last_name %></h4>
           <% end %>
             <tr><br>
+            <!-- CRUD BUTTON -->
               <td><%= link_to 'Edit student', edit_user_path(user), class:"btn btn-outline-info" %></td><br>
               <td><%= link_to 'Delete student', user, class:"btn btn-outline-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
